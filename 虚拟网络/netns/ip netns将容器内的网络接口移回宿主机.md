@@ -24,12 +24,14 @@
 ## 正确做法
 
 ```bash
+## 创建 ns 与 veth 设备
 # ip link show | grep -E 'veth01|veth02'
 # ip netns add ns01
 # ip link add veth01 type veth peer name veth02
 # ip link show | grep -E 'veth01|veth02'
 82: veth02@veth01: <BROADCAST,MULTICAST,M-DOWN> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
 83: veth01@veth02: <BROADCAST,MULTICAST,M-DOWN> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+## 移入 ns
 # ip link set veth02 netns ns01
 # ip link show | grep -E 'veth01|veth02'
 83: veth01@if82: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000

@@ -76,7 +76,7 @@ yes
 
 ### `>=`和`<=`不太好用
 
-```
+```log
 $ if [[ 1 >= 1 ]]; then echo yes; else echo no; fi
 -bash: syntax error in conditional expression
 -bash: syntax error near `1'
@@ -86,7 +86,7 @@ $ if [[ 1 >= 1 ]]; then echo yes; else echo no; fi
 
 `?`匹配任意单一字符, `*`匹配任意个任意字符, 右边为模式, 不可以用引号包裹
 
-```
+```log
 $ if [[ "hashes" == "hash??" ]]; then echo yes; else echo no; fi
 no
 $ if [[ "hashes" == hash?? ]]; then echo yes; else echo no; fi
